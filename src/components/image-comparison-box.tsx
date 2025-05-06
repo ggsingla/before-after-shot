@@ -1,20 +1,14 @@
 "use client"
-
-import type { FC } from "react"
 import { useState } from "react"
 import { ImageUploadButton } from "@/components/image-upload-button"
 import { ImagePreview } from "@/components/image-preview"
 import { Button } from "@/components/ui/button"
 import { generateComparisonPreview } from "@/utils/image"
 
-interface ImageComparisonBoxProps {
-  beforeImage: string | null
-  afterImage: string | null
-  onBeforeChange: (img: string | null) => void
-  onAfterChange: (img: string | null) => void
-}
+export const ImageComparisonBox = () => {
+  const [beforeImage, setBeforeImage] = useState<string | null>(null)
+  const [afterImage, setAfterImage] = useState<string | null>(null)
 
-export const ImageComparisonBox: FC<ImageComparisonBoxProps> = ({ beforeImage, afterImage, onBeforeChange, onAfterChange }) => {
   const [isDownloading, setIsDownloading] = useState(false)
 
   const handleDownload = async () => {
@@ -33,16 +27,14 @@ export const ImageComparisonBox: FC<ImageComparisonBoxProps> = ({ beforeImage, a
 
   return (
     <div className="flex flex-col items-center gap-6">
-      {/* Instruction */}
       <p className="text-base text-center text-muted-foreground mb-2" id="upload-instructions">
         Select your before and after images to get started.
       </p>
-      {/* Upload buttons row */}
       <div className="flex w-full justify-between gap-8" aria-describedby="upload-instructions">
         <div className="flex flex-col items-center gap-1 w-1/2">
           <ImageUploadButton
             side="left"
-            onImageSelect={img => onBeforeChange(img)}
+            onImageSelect={img => setBeforeImage(img)}
             currentImage={beforeImage}
           />
           <span className="text-xs text-muted-foreground">Before</span>
@@ -50,7 +42,7 @@ export const ImageComparisonBox: FC<ImageComparisonBoxProps> = ({ beforeImage, a
         <div className="flex flex-col items-center gap-1 w-1/2">
           <ImageUploadButton
             side="right"
-            onImageSelect={img => onAfterChange(img)}
+            onImageSelect={img => setAfterImage(img)}
             currentImage={afterImage}
           />
           <span className="text-xs text-muted-foreground">After</span>
