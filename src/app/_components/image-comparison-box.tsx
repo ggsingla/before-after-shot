@@ -4,7 +4,7 @@ import { ImagePreview } from "@/app/_components/image-preview"
 import { Button } from "@/components/ui/button"
 import { generateComparisonPreview } from "@/utils/image"
 import { Card, CardContent } from "@/components/ui/card"
-import { ImageUploadDialog } from "@/components/image-upload-dialog"
+import { ImageUploadDialog } from "./image-upload-dialog"
 
 export const ImageComparisonBox = () => {
   const [beforeImage, setBeforeImage] = useState<string | null>(null)

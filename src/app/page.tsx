@@ -6,7 +6,9 @@ const Page = () => {
       <div className="w-full mx-auto py-16 px-4 grid grid-rows-[auto_1fr] place-items-center gap-8">
         <header className="text-center max-w-xl">
           <h1 className="text-3xl font-bold mb-2">Before & After Comparison</h1>
-          <p className="text-muted-foreground">Compare images side by side</p>
+          <p className="text-muted-foreground">
+            Generate a before and after comparison image
+          </p>
         </header>
         <ImageComparisonBox />
       </div>

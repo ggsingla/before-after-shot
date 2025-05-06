@@ -13,6 +13,7 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
+
 interface ImageUploadDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
