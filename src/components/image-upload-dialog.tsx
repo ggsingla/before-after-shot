@@ -13,7 +13,6 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
-
 interface ImageUploadDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
@@ -72,13 +71,9 @@ export const ImageUploadDialog: FC<ImageUploadDialogProps> = ({ open, onOpenChan
           >
             Select Image
           </Button>
-          <div
-            className="w-full text-center text-sm text-muted-foreground border rounded p-2 bg-muted cursor-pointer"
-            tabIndex={0}
-            onClick={() => alert("Press Ctrl+V / Cmd+V to paste an image")}
-          >
-            Or paste image from clipboard
-          </div>
+          <p className="w-full text-center text-sm text-muted-foreground mt-2">
+            Or use <kbd className="font-semibold">Ctrl+V</kbd> (Windows) or <kbd className="font-semibold">Cmd+V</kbd> (Mac) to paste an image from your clipboard.
+          </p>
         </div>
         <DialogFooter>
           <Button variant="ghost" onClick={() => onOpenChange(false)} type="button">

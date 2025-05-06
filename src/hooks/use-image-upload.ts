@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import { isImageFile } from '@/utils/image'
-
+import { toast } from 'sonner'
 interface UseImageUploadResult {
   image: string | null
   setImage: (img: string | null) => void
@@ -26,8 +26,11 @@ export function useImageUpload(): UseImageUploadResult {
   const handlePaste = useCallback((e: ClipboardEvent) => {
     const items = e.clipboardData?.items
     if (!items) return
+
+    let hasImage = false
     for (let i = 0; i < items.length; i++) {
       if (items[i].type.indexOf('image') !== -1) {
+        hasImage = true
         const blob = items[i].getAsFile()
         if (blob) {
           const reader = new FileReader()
@@ -36,6 +39,10 @@ export function useImageUpload(): UseImageUploadResult {
         }
         break
       }
+    }
+
+    if (!hasImage) {
+      toast.error('No image found in clipboard')
     }
   }, [])
 
