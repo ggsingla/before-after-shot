@@ -1,21 +1,14 @@
-import { ImageComparisonBox } from "@/components/image-comparison-box"
+import { ImageComparisonBox } from "@/app/_components/image-comparison-box"
 
 const Page = () => {
   return (
     <main className="flex flex-col items-center min-h-screen bg-muted">
-      <div className="w-full max-w-xl mx-auto py-16 px-4 flex flex-col items-center gap-8">
-        <header className="w-full flex flex-col items-center gap-2">
-          <h1 className="text-4xl font-bold text-center tracking-tight text-foreground">Before & After Image Comparison</h1>
-          <p className="text-lg text-muted-foreground text-center max-w-md">
-            Effortlessly compare two images side by side. Upload your before and after shots to see the difference!
-          </p>
+      <div className="w-full mx-auto py-16 px-4 grid grid-rows-[auto_1fr] place-items-center gap-8">
+        <header className="text-center max-w-xl">
+          <h1 className="text-3xl font-bold mb-2">Before & After Comparison</h1>
+          <p className="text-muted-foreground">Compare images side by side</p>
         </header>
-        <section
-          aria-label="Image Comparison"
-          className="w-full bg-background rounded-2xl shadow-lg p-6 flex flex-col items-center"
-        >
-          <ImageComparisonBox />
-        </section>
+        <ImageComparisonBox />
       </div>
     </main>
   )
